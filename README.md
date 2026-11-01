@@ -1,8 +1,11 @@
 # transcript-local
 
 Înregistrezi meetingul, primești transcriptul ca fișier text, apoi îi ceri lui Claude
-minuta. Totul se întâmplă pe laptopul tău: audio-ul și transcriptul nu pleacă nicăieri,
-nu ai nevoie de cont, nu plătești nimic în plus.
+minuta. Înregistrarea și transcrierea se fac pe laptopul tău, iar audio-ul nu pleacă
+nicăieri. Curățarea și minuta se fac cu Claude, deci la pasul ăsta textul ajunge în cloud.
+Dacă transcriptul are date despre clienți, treci-l întâi prin
+[Paravan](https://github.com/raluca-catalyst/paravan), care ascunde datele personale și le
+pune la loc după ce lucrezi cu AI-ul.
 
 Merge pe **Windows** (aplicația din acest repo) și pe **Mac** (vezi [MAC.md](MAC.md)).
 Partea de minute e la fel pe amândouă.
@@ -13,7 +16,8 @@ Partea de minute e la fel pe amândouă.
    care iese din laptop (ceilalți). Participanții nu văd nimic, nu intră niciun bot în call.
 2. **Transcrie** local, în română sau engleză, cu timestamps și două etichete de vorbitor:
    tu și ceilalți.
-3. **Curăță** transcriptul cu Claude (diacritice, cuvinte stâlcite, ecouri).
+3. **Curăță** transcriptul cu Claude (diacritice, cuvinte stâlcite, ecouri). La pasul ăsta
+   textul pleacă în cloud, la Claude.
 4. **Minuta** o face Claude Code, din transcript, cu skill-ul `minuta` inclus în repo.
 
 ## Ce ai nevoie (Windows)
@@ -134,6 +138,18 @@ Transcriptul brut e salvat oricum; poți rula curățarea mai târziu, retranscr
 `recordings\`.
 
 **Prima transcriere durează foarte mult.** Se descarcă modelul (~1,6 GB). Doar prima dată.
+
+## Construiește-ți propria variantă
+
+Poți construi o aplicație ca asta și fără să fii programator. Copiază promptul de mai jos
+în ChatGPT Codex sau Claude Code, deschis într-un folder gol:
+
+> Construiește-mi o aplicație pentru laptopul meu (Windows sau Mac) care înregistrează un
+> meeting, adică microfonul meu și sunetul care iese din laptop, și îl transcrie local,
+> fără internet, în română, cu un model Whisper. La final vreau un fișier .md cu
+> transcriptul, cu ora la fiecare replică și cu eticheta „eu" sau „ceilalți". Nimic din
+> audio sau din text nu pleacă de pe laptop. Ghidează-mă pas cu pas la instalare, ca pe
+> cineva care n-a mai deschis un terminal.
 
 ## Cum e făcută (pentru cine vrea să modifice)
 
